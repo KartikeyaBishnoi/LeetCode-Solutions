@@ -19,6 +19,8 @@ Input: n = 1
 Output: true
  
 */
+
+//Solution 1:
 class Solution
 {
     public boolean isPowerOfFour(int n)
@@ -34,5 +36,20 @@ class Solution
         }
         return false;
         
+    }
+}
+
+
+//Solution 2:
+class Solution
+{
+    public boolean isPowerOfFour(int n) 
+    {
+        double res = Math.log(n)/Math.log(4);
+        if((int)(res) == res)
+        {
+            return true;
+        }       
+        return false;
     }
 }
