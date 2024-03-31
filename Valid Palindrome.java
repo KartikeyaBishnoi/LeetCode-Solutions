@@ -1,4 +1,4 @@
-A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all 
+/* A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all 
 non-alphanumeric characters, it reads the same forward and backward.
 Alphanumeric characters include letters and numbers.
 
@@ -27,8 +27,56 @@ Since an empty string reads the same forward and backward, it is a palindrome.
 
 #################################################################################################################################
 
-Solution:
+Solution:1
+ */
+class Solution
+{
+    public boolean isPalindrome(String s)
+    {
+        int left = 0;
+        int right = s.length()-1;
 
+        while(left < right)
+        {
+            char l = s.charAt(left);
+            char r = s.charAt(right);
+
+            if(Character.isLetterOrDigit(l) == false)
+            {
+                left++;
+                continue;
+            }
+
+            if(Character.isLetterOrDigit(r) == false)
+            {
+                right--;
+                continue;
+            }
+
+            String ll = l+"";
+            String rr = r+"";
+
+            if(ll.equalsIgnoreCase(rr) == false)
+                return false;
+
+            left++;
+            right--;
+        }
+        return true;
+        
+    }
+}
+
+
+
+
+
+
+
+
+
+
+//solution 2
 class Solution
 {
     public boolean isPalindrome(String s)
