@@ -24,7 +24,7 @@ Notice that the answer must be a substring, "pwke" is a subsequence and not a su
  
 
 */
-// Solution 1 :
+// Solution 1 : Brute Force 
 class Solution
 {
     public int lengthOfLongestSubstring(String s)
@@ -56,7 +56,7 @@ class Solution
 }
 
 
-//Solution2:
+//Solution2: Sliding Window
 class Solution {
     public int lengthOfLongestSubstring(String s) {
         int longestSubstring = 0;
