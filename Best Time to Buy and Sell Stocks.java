@@ -1,4 +1,4 @@
-You are given an array prices where prices[i] is the price of a given stock on the ith day.
+/*You are given an array prices where prices[i] is the price of a given stock on the ith day.
 
 You want to maximize your profit by choosing a single day to buy one stock and choosing a different day in the future to sell that stock.
 
@@ -18,8 +18,8 @@ Input: prices = [7,6,4,3,1]
 Output: 0
 Explanation: In this case, no transactions are done and the max profit = 0.
 
-
-Solution 1: Brute Force
+*/
+//Solution 1: Brute Force
 class Solution
 {
     public int maxProfit(int[] prices)
@@ -47,7 +47,7 @@ class Solution
 
 
 
-Solution 2 : 
+//Solution 2 : 
 class Solution
 {
     public int maxProfit(int[] prices)
@@ -65,5 +65,37 @@ class Solution
             max = prices[i]-buy;
         }
         return max;
+    }
+}
+
+
+//Solution 3
+
+class Solution
+{
+    public int maxProfit(int[] prices)
+    {
+        int bestDeal = 0;
+        int buy = 0;
+        int sell = 1;
+        while(sell != prices.length)
+        {
+            int profit = prices[sell] - prices[buy];
+            if(profit<0)
+            {
+                buy++;
+            }
+            else
+            {
+                
+                if(bestDeal < profit)
+                    bestDeal = profit;
+                sell++;
+            }
+
+        }
+        return bestDeal;
+
+        
     }
 }
